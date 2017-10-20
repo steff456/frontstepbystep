@@ -1,19 +1,37 @@
 <div class="container-fluid">
-    <div class="col-md-4">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Name</th>    
-                    <th>Birth Date</th>  
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="author in authorsRecords">
-                    <td id="{{$index}}-name"><a ui-sref="authorDetail({authorId: author.id})">{{author.name}}</a></td>
-                    <td id="{{$index}}-birthDate">{{author.birthDate| date:'yyyy-MM-dd'}}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label>Authors list</label></div>
+            <div class="panel-body">
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-info" ui-sref="authorsCreate"><span class="glyphicon glyphicon-plus-sign"></span> Add new author</a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>    
+                                <th>Birth Date</th>  
+                                <th>Actions</th>  
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="author in authorsRecords">
+                                <td id="{{$index}}-name"><a ui-sref="authorDetail({authorId: author.id})">{{author.name}}</a></td>
+                                <td id="{{$index}}-birthDate">{{author.birthDate| date:'yyyy-MM-dd'}}</td>
+                                <td id="{{$index}}-actions">
+                                    <a class="btn btn-default btn-sm" ui-sref="authorUpdate({authorId: author.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a class="btn btn-danger btn-sm" ui-sref="authorDelete({authorId: author.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
+
+
 </div>

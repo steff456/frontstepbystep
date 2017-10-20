@@ -42,6 +42,39 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('authorsCreate', {
+                url: '/create',
+                parent: 'authors',
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/new/authors.new.html',
+                        controller: 'authorNewCtrl'
+                    }
+                }
+            }).state('authorUpdate', {
+                url: '/update/{authorId:int}',
+                parent: 'authors',
+                param: {
+                    authorId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/new/authors.new.html',
+                        controller: 'authorUpdateCtrl'
+                    }
+                }
+            }).state('authorDelete', {
+                url: '/delete/{authorId:int}',
+                parent: 'authors',
+                param: {
+                    authorId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/author.delete.html',
+                        controller: 'authorDeleteCtrl'
+                    }
+                }
             });
         }]);
 })(window.angular);
