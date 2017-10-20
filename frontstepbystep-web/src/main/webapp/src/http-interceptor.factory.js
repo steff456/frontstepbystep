@@ -2,14 +2,14 @@
     var appModule = angular.module('mainApp');
 
     appModule.factory('httpInterceptor', ['$q', '$rootScope', function ($q, $rootScope) {
-            
+
             //Se define el arreglo de alerts que va almacenar la alerta que se mostrará dependiendo del error
             $rootScope.alerts = [];
             //Se define el closeAlert en rootScope para que todas las vistas lo reutilicen cuando salga un alert
-            $rootScope.closeAlert = function (index) {  
+            $rootScope.closeAlert = function (index) {
                 $rootScope.alerts.splice(index, 1);
             };
-            
+
             var interceptor = {
                 response: function (response) {
                     return response;
@@ -28,7 +28,7 @@
                         }
                     }
 
-                    showError("Error: " + status + "\n" + rejection.data, "danger");
+                    showError(rejection.data, "danger");
                     return $q.reject(rejection);
                 }
             };

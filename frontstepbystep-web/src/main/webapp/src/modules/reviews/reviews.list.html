@@ -1,0 +1,22 @@
+<div class="container-fluid">   
+    <div class="col-sm-12">
+        <br>
+        <table ng-if="!messageReviews" class="table table-striped">
+            
+            <tbody>
+                <tr ng-repeat="review in reviewsRecords">
+                    <td id="{{$index}}-id"><b>{{currentBook.name}}</b><span>: </span>{{review.description}}</td>                                  
+                </tr>
+            </tbody>
+        </table>
+        <table ng-if="messageReviews" class="table table-striped">
+            
+            <tbody>
+                <tr>
+                    <td><b>{{messageReviews}}</b></td>                                  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
