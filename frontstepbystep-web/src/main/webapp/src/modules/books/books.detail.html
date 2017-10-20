@@ -1,0 +1,34 @@
+<div class="panel panel-default"> 
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="thumb">
+                    <img class="img-responsive" ng-src="{{currentBook.image}}"/>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <dl>     
+                    <dt>{{currentBook.name}}</dt>
+                    <ul ng-repeat="author in currentBook.authors">
+                        <a ui-sref="authorDetail({authorId: author.id})">{{author.name}}</a>
+                    </ul>
+                    <dt> ISBN</dt>
+                    <dd>{{currentBook.isbn}}</dd>
+                    <hr>
+                    <dt>Publishing Date</dt>
+                    <dd>{{currentBook.publishingdate | date:'yyyy-MM-dd'}}</dd>
+                    <hr>
+                    <dt class="bold">Editorial</dt>
+
+                    <dd>{{currentBook.editorial.name}}</dd>
+                    <hr>
+                    <dt class="bold">Description</dt>
+                    <dd>{{currentBook.description}}</dd>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+

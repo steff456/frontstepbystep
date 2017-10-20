@@ -1,25 +1,47 @@
 (function (ng) {
-    // Definición del módulo
     var mod = ng.module("authorModule", ['ui.router']);
-
-    // Configuración de los estados del módulo
+    mod.constant("authorsContext", "api/authors");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-            // En basePath se encuentran los templates y controladores de módulo
             var basePath = 'src/modules/authors/';
-            // Mostrar la lista de autores será el estado por defecto del módulo
+            var basePathBooks = 'src/modules/books/';
             $urlRouterProvider.otherwise("/authorsList");
-            // Definición del estado 'authorsList' donde se listan los autores
-            $stateProvider.state('authorsList', {
-                // Url que aparecerá en el browser
-                url: '/authors/list',
+
+            $stateProvider.state('authors', {
+                url: '/authors',
+                abstract: true,
                 views: {
                     'mainView': {
-                        templateUrl: basePath + 'authors.list.html',
+                        templateUrl: basePath + 'authors.html',
+                        controller: 'authorCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('authorsList', {
+                url: '/list',
+                parent: 'authors',
+                views: {
+                    'listView': {
+                        templateUrl: basePath + 'authors.list.html'
+                    }
+                }
+            }).state('authorDetail', {
+                url: '/{authorId:int}/detail',
+                parent: 'authors',
+                param: {
+                    authorId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePathBooks + 'books.list.html',
+                        controller: 'authorCtrl',
+                        controllerAs: 'ctrl'
+                    },
+                    'detailView': {
+                        templateUrl: basePath + 'authors.detail.html',
                         controller: 'authorCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
             });
-        }
-    ]);
+        }]);
 })(window.angular);
