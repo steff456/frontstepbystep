@@ -1,0 +1,18 @@
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+<div class="container-fluid">
+    <div class="row">
+        <!-- booksRecords fue inicializada en el controlador del estado booksList -->
+        <!-- Itera sobre cada uno de los libros en la colección booksRecords -->
+        <div class="col-sm-2 col-md-2" ng-repeat="book in booksRecords">
+             <!--Despliega la imagen  -->
+            <div class="thumbnail">
+                <img class="img-responsive" ng-src='{{book.image}}' alt="{{book.name}}" />  
+                 <!-- Despliega en el caption de la imagen el nombre del libro -->
+                <div class="caption text-center">{{book.name}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

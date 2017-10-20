@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>books</title>
+        <link rel="shortcut icon" href="">
+        <!-- Dependencias Externas -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+        <!-- Books -->
+        <script src="src/modules/books/books.mod.js" type="text/javascript"></script>
+        <script src="src/modules/books/books.ctrl.js" type="text/javascript"></script>
+        <!-- Authors -->
+        <script src="src/modules/authors/authors.mod.js" type="text/javascript"></script>
+        <script src="src/modules/authors/authors.ctrl.js" type="text/javascript"></script>
+        <!-- Editorials -->
+        <script src="src/modules/editorials/editorials.mod.js" type="text/javascript"></script>
+        <script src="src/modules/editorials/editorials.ctrl.js" type="text/javascript"></script>
+
+        <script src="src/app.js" type="text/javascript"></script> 
+        <script src="src/http-interceptor.factory.js" type="text/javascript"></script> 
+
+    </head>
+    <body>
+        <div class="container-fluid"> 
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="nav nav-tabs">
+                        <li><a ui-sref="booksList">Books</a></li>
+                        <li><a ui-sref="authorsList">Authors</a></li>
+                        <li><a ui-sref="editorialsList">Editorials</a></li>
+                    </ul>                   
+                </div>
+            </div>               
+            <div ui-view="mainView">
+            </div> 
+        </div>
+    </body>
+</html>

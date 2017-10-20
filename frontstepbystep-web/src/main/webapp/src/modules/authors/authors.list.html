@@ -1,0 +1,21 @@
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+<div id="alertPanel" style="text-align: center"></div>
+<div class="container-fluid">
+    <div class="col-md-4">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>    
+                    <th>Birth Date</th>  
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="author in authorsRecords">
+                    <td id="{{$index}}-name">{{author.name}}</td>
+                    <td id="{{$index}}-birthDate">{{author.birthDate| date:'yyyy-MM-dd'}}</td>                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
